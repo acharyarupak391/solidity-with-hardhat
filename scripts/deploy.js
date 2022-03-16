@@ -10,7 +10,13 @@ async function main() {
   const Token = await ethers.getContractFactory("Token");
   const token = await Token.deploy();
 
-  console.log("Token address:", token.address);
+  console.log("Token deployed address:", token.address);
+  
+  // Deploying `Message` contract
+  const Message = await ethers.getContractFactory("Message");
+  const message = await Message.deploy();
+  
+  console.log("Message deployed address:", message.address);
 }
 
 main()
