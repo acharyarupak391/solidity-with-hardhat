@@ -1,21 +1,10 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
-
-  console.log("Deploying contracts with the account:", deployer.address);
-
-  console.log("Account balance:", (await deployer.getBalance()).toString());
-
-  const Token = await ethers.getContractFactory("Token");
-  const token = await Token.deploy();
-
-  console.log("Token deployed address:", token.address);
-  
   // Deploying `Message` contract
   const Message = await ethers.getContractFactory("Message");
   const message = await Message.deploy();
-  
+
   console.log("Message deployed address:", message.address);
 }
 
